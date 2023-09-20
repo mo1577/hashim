@@ -11,12 +11,14 @@ class StudentShow extends Component
     use WithPagination;
     public $query = '';
     protected $paginationTheme = 'bootstrap';
-    public $name, $email, $course, $student_id, $search;
+    public $name, $email, $course, $class,$roll_number,$student_id,$search;
 
     protected $rules = [
         'name' => 'required|string|max:255',
         'email' => 'required|email|unique:students,email',
         'course' => 'required|string|max:255',
+        'class'  => 'required|string',
+        'roll_number' => 'required|integer|max:20'
     ];
 
     public function updated($fields)
@@ -40,7 +42,9 @@ class StudentShow extends Component
         Student::where('id', $this->student_id)->update([
             'name' => $validatedData['name'],
             'email' => $validatedData['email'],
-            'course' => $validatedData['course']
+            'course' => $validatedData['course'],
+            'class'  => $validatedData['class'],
+            'roll_number' => $validatedData['roll_number']
         ]);
 
         session()->flash('message', 'Student Updated Successfully');
@@ -56,6 +60,8 @@ class StudentShow extends Component
             $this->name = $student->name;
             $this->email = $student->email;
             $this->course = $student->course;
+            $this->class = $student->class;
+            $this->roll_number = $student->sroll_number;
         } else {
             return redirect()->to('/students');
         }
@@ -83,6 +89,8 @@ class StudentShow extends Component
         $this->name = '';
         $this->email = '';
         $this->course = '';
+        $this->class = '';
+        $this->roll_number = '';
     }
 
     public function render()
@@ -90,6 +98,8 @@ class StudentShow extends Component
         $students = Student::where('name', 'like', '%' . $this->search . '%')
             ->orWhere('email', 'like', '%' . $this->search . '%')
             ->orWhere('course', 'like', '%' . $this->search . '%')
+            ->orWhere('class', 'like', '%' .  $this->search . '%')
+            ->orWhere('roll_number', 'like', '%' . $this->search . '%')
             ->orderBy('id', 'DESC')
             ->paginate(3);
         return view('livewire.student-show', ['students' => $students]);

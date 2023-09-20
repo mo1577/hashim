@@ -14,7 +14,7 @@
                         <div class="input-group mb-3" style="width: 230px;">
                             <input type="search" wire:model="search" class="form-control" placeholder="Search...">
                             <button class="btn btn-primary" type="button">Search</button>
-                        </div>                           
+                        </div>
                         <button type="button" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#studentModal">
                             Add new Student
                         </button>
@@ -27,7 +27,9 @@
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Course</th>
-                                    <th>Actions</th>
+                                    <th> class</th>
+                                    <th>roll_number</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -37,6 +39,8 @@
                                         <td>{{$student->name}}</td>
                                         <td>{{$student->email}}</td>
                                         <td>{{$student->course}}</td>
+                                        <td>{{$student->class}}</td>
+                                        <td>{{$student->roll_number}}</td>
                                         <td>
                                             <button type="button" data-bs-toggle="modal" data-bs-target="#updateStudentModal" wire:click="editStudent({{ $student->id }})" class="btn btn-primary">
                                                 Edit
@@ -58,5 +62,6 @@
                 </div>
             </div>
         </div>
+        @include('livewire.studentmodal')
     </div>
-    @include('livewire.studentmodal')
+

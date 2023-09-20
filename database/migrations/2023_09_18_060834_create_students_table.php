@@ -19,6 +19,8 @@ return new class extends Migration
         $table->string('name');
         $table->string('email');
          $table->string('course');
+         $table->string('class');
+         $table->integer('roll_number');
          $table->timestamps();
 });
 

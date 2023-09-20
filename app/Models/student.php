@@ -14,5 +14,7 @@ class student extends Model
         'name',
         'email',
         'course',
+        'class',
+        'roll_number',
     ];
 }

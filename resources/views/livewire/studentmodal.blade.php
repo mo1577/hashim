@@ -25,6 +25,16 @@
                       <input type="text" wire:model.defer="course" class="form-control">
                       @error('course')<span class="text-danger">{{ $message }}</span> @enderror
                   </div>
+                  <div class="mb-3">
+                    <label>Student Class</label>
+                    <input type="text" wire:model.defer="class" class="form-control">
+                    @error('class')<span class="text-danger">{{ $message }}</span> @enderror
+                </div>
+                <div class="mb-3">
+                    <label>Student Roll_number</label>
+                    <input type="integer" wire:model.defer="roll_number" class="form-control">
+                    @error('roll_number')<span class="text-danger">{{ $message }}</span> @enderror
+                </div>
               </div>
               <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -62,6 +72,16 @@
                       <input type="text" wire:model.defer="course" class="form-control">
                       @error('course')<span class="text-danger">{{ $message }}</span> @enderror
                   </div>
+                  <div class="mb-3">
+                    <label>Student Class</label>
+                    <input type="text" wire:model.defer="class" class="form-control">
+                    @error('class')<span class="text-danger">{{ $message }}</span> @enderror
+                </div>
+                <div class="mb-3">
+                    <label>Student Roll_number</label>
+                    <input type="integer" wire:model.defer="roll_number" class="form-control">
+                    @error('roll_number')<span class="text-danger">{{ $message }}</span> @enderror
+                </div>
               </div>
               <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
