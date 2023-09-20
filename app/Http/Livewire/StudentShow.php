@@ -90,8 +90,7 @@ class StudentShow extends Component
         $students = Student::where('name', 'like', '%' . $this->search . '%')
             ->orWhere('email', 'like', '%' . $this->search . '%')
             ->orWhere('course', 'like', '%' . $this->search . '%')
-            ->orderBy('id', 'DESC')
-            ->paginate(3);
+            ->orderBy('id', 'DESC')->paginate(3);
         return view('livewire.student-show', ['students' => $students]);
     }
 }
